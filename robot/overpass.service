@@ -1,0 +1,12 @@
+[Unit]
+Description=Overpass API
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/docker run -d -p 8000:80 overpass:latest
+KillSignal=SIGKILL
+User=ropod
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

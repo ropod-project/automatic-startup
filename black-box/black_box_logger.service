@@ -1,0 +1,14 @@
+[Unit]
+Description=Black box data logger
+After=network.target mnt-data.mount mongodb.service
+
+[Service]
+User=alarm
+EnvironmentFile=/home/alarm/workspace/black-box/config/environment_variables.txt
+ExecStart=/home/alarm/workspace/black-box/cppbb/datalogger/build/black_box_logger
+WorkingDirectory=/home/alarm/workspace/black-box/cppbb/datalogger/build
+KillSignal=SIGKILL
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

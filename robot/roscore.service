@@ -1,0 +1,10 @@
+[Unit]
+Description=roscore service
+
+[Service]
+Type=simple
+ExecStart=/bin/bash -c "source /opt/ros/kinetic/setup.bash && /opt/ros/kinetic/bin/roscore"
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

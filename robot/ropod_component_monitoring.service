@@ -1,0 +1,14 @@
+[Unit]
+Description=Component monitoring
+After=network.target
+
+[Service]
+EnvironmentFile=/home/ropod/ropod-project-software/catkin_workspace/src/platform/component-monitoring/config/environment_variables.txt
+ExecStart=/bin/bash -c "export ROS_MASTER_URI=http://localhost:11311 && export PYTHONPATH=/opt/ros/kinetic/lib/python2.7/dist-packages && /usr/bin/python /home/ropod/ropod-project-software/catkin_workspace/src/platform/component-monitoring/main.py"
+WorkingDirectory=/home/ropod/ropod-project-software/catkin_workspace/src/platform/component-monitoring
+KillSignal=SIGKILL
+User=ropod
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

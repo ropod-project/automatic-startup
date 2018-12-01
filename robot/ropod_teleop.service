@@ -1,0 +1,12 @@
+[Unit]
+Description=ROPOD teleop
+After=network.target roscore.service ropod_sound_communicator.service
+
+[Service]
+ExecStart=/bin/bash -c "source /home/ropod/.ropod/env.sh && export ROBOT_REAL=true && export CATKIN_WORKSPACE=/home/ropod/ropod-project-software/catkin_workspace && export PYTHONPATH=/home/ropod/ropod-project-software/catkin_workspace/devel/lib/python2.7/dist-packages:/opt/ros/kinetic/lib/python2.7/dist-packages && source /home/ropod/ropod-project-software/catkin_workspace/devel/setup.bash && export ROS_MASTER_URI=http://localhost:11311 && roslaunch ropod_teleop joy.launch"
+KillSignal=SIGKILL
+User=ropod
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
