@@ -1,9 +1,9 @@
 [Unit]
 Description=ROPOD route planner
-After=network.target roscore.service ropod_world_model_mediator.service
+After=network.target roscore.service
 
 [Service]
-ExecStart=/bin/bash -c "source /home/ropod/.ropod/env.sh && source /home/ropod/ropod-project-software/catkin_workspace/devel/setup.bash && export ROS_MASTER_URI=http://localhost:11311 && roslaunch route_planner route_planner.launch"
+ExecStart=/bin/bash -c "source /home/ropod/.ropod/env.sh && source /home/ropod/ropod-project-software/catkin_workspace/devel/setup.bash && export ROS_MASTER_URI=http://localhost:11311 && rosrun route_planner route_planner_node"
 KillSignal=SIGKILL
 User=ropod
 Restart=on-failure
