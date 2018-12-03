@@ -7,7 +7,7 @@ if [ -z "$platform" ]; then
     echo "       where platform can be either robot or black-box"
 else
     echo 'Copying service files to /etc/systemd/system...';
-    sudo cp services/* /etc/systemd/system/
+    sudo cp $platform/* /etc/systemd/system/
     echo 'Service files copied successfully';
 
     echo 'Enabling services...';
