@@ -1,6 +1,6 @@
 [Unit]
 Description=ROPOD world model mediator
-After=network.target roscore.service overpass.service
+After=network.target roscore.service overpass.service ropod_route_planner.service osm_bridge_ros_wrapper.service
 
 [Service]
 ExecStart=/bin/bash -c "source /home/ropod/.ropod/env.sh && source /home/ropod/ropod-project-software/catkin_workspace/devel/setup.bash && export ROS_MASTER_URI=http://localhost:11311 && roslaunch ropod_wm_mediator wm_mediator.launch"
