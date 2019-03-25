@@ -1,0 +1,13 @@
+[Unit]
+Description=Status LEDs
+After=network.target mnt-data.mount mongodb.service
+
+[Service]
+User=root
+ExecStart=/bin/bash -c "/home/alarm/status_leds/status_leds/run_neopixel.sh"
+WorkingDirectory=/home/alarm/status_leds/status_leds/
+KillSignal=SIGKILL
+
+[Install]
+WantedBy=multi-user.target
+
