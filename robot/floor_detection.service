@@ -1,0 +1,12 @@
+[Unit]
+Description=Component for detecting elevation changes of a robot
+After=network.target roscore.service
+
+[Service]
+ExecStart=/bin/bash -c "source /home/ropod/.ropod/env.sh && source /home/ropod/ropod-project-software/catkin_workspace/devel/setup.bash && export ROS_MASTER_URI=http://localhost:11311 && roslaunch floor_detection floor_detection.launch"
+KillSignal=SIGKILL
+User=ropod
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
