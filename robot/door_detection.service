@@ -3,7 +3,7 @@ Description=Component for detecting whether a door is open or closed
 After=network.target roscore.service
 
 [Service]
-ExecStart=/bin/bash -c "source /home/ropod/.ropod/env.sh && source /home/ropod/ropod-project-software/catkin_workspace/devel/setup.bash && export ROS_MASTER_URI=http://localhost:11311 && roslaunch door_status_detection door_status.launch"
+ExecStart=/bin/bash -c "source /home/ropod/.ropod/env.sh && source /home/ropod/ropod-project-software/catkin_workspace/devel/setup.bash && export ROS_MASTER_URI=http://localhost:11311 && roslaunch door_status_detection door_status_detection.launch"
 KillSignal=SIGKILL
 User=ropod
 Restart=on-failure
