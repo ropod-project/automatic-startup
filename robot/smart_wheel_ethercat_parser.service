@@ -1,0 +1,12 @@
+[Unit]
+Description=Component for publishing smart wheel data to a ROS topic
+After=network.target roscore.service
+
+[Service]
+ExecStart=/bin/bash -c "source /home/ropod/.ropod/env.sh && source /home/ropod/ropod-project-software/catkin_workspace/devel/setup.bash && export ROS_MASTER_URI=http://localhost:11311 && roslaunch smart_wheel_ethercat_parser smart_wheel_ethercat_parser.launch"
+KillSignal=SIGKILL
+User=ropod
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
