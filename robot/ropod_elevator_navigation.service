@@ -1,0 +1,12 @@
+[Unit]
+Description=ROPOD elevator navigation
+After=roscore.service ropod_world_model_mediator.service door_detection.service floor_detection.service
+
+[Service]
+ExecStart=/bin/bash -c "source /home/ropod/.ropod/env.sh && source /home/ropod/ropod-project-software/catkin_workspace/devel/setup.bash && export ROS_MASTER_URI=http://localhost:11311 && roslaunch elevator_navigation elevator_navigation.launch"
+KillSignal=SIGKILL
+User=ropod
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

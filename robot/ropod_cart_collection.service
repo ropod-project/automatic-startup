@@ -1,0 +1,12 @@
+[Unit]
+Description=ROPOD cart collection
+After=roscore.service ropod_world_model_mediator.service ropod_cart_plane_detection.service
+
+[Service]
+ExecStart=/bin/bash -c "source /home/ropod/.ropod/env.sh && source /home/ropod/ropod-project-software/catkin_workspace/devel/setup.bash && export ROS_MASTER_URI=http://localhost:11311 && roslaunch cart_collection cart_collection.launch"
+KillSignal=SIGKILL
+User=ropod
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
