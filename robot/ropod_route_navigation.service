@@ -1,6 +1,6 @@
 [Unit]
 Description=ROPOD route navigation
-After=roscore.service ropod_world_model_mediator.service route_planner.service
+After=roscore.service ropod_world_model_mediator.service route_planner.service ropod_map_switcher.service ropod_localisation.service ropod_maneuver_navigation.service
 
 [Service]
 ExecStart=/bin/bash -c "source /home/ropod/.ropod/env.sh && source /home/ropod/ropod-project-software/catkin_workspace/devel/setup.bash && export ROS_MASTER_URI=http://localhost:11311 && roslaunch route_navigation route_navigation.launch"
