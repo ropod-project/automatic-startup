@@ -1,10 +1,10 @@
 [Unit]
 Description=Component monitoring
-After=network.target
+After=network.target roscore.service
 
 [Service]
 EnvironmentFile=/home/ropod/ropod-project-software/catkin_workspace/src/platform/component-monitoring/config/environment_variables.txt
-ExecStart=/bin/bash -c "export ROS_MASTER_URI=http://localhost:11311 && export PYTHONPATH=/opt/ros/kinetic/lib/python2.7/dist-packages && /usr/bin/python /home/ropod/ropod-project-software/catkin_workspace/src/platform/component-monitoring/main.py"
+ExecStart=/bin/bash -c "source /home/ropod/.ropod/env.sh && source /home/ropod/ropod-project-software/catkin_workspace/devel/setup.bash && export ROS_MASTER_URI=http://localhost:11311 && export PYTHONPATH=/opt/ros/kinetic/lib/python2.7/dist-packages && /usr/bin/python3 /home/ropod/ropod-project-software/catkin_workspace/src/platform/component-monitoring/main.py /home/ropod/ropod-project-software/catkin_workspace/src/platform/component-monitoring/config/component_monitoring_config.yaml"
 WorkingDirectory=/home/ropod/ropod-project-software/catkin_workspace/src/platform/component-monitoring
 KillSignal=SIGKILL
 User=ropod
