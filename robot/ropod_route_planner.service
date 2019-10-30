@@ -3,7 +3,7 @@ Description=ROPOD route planner
 After=network.target roscore.service
 
 [Service]
-ExecStart=/bin/bash -c "source /home/ropod/.ropod/env.sh && source /home/ropod/ropod-project-software/catkin_workspace/devel/setup.bash && export ROS_MASTER_URI=http://localhost:11311 && rosrun route_planner route_planner_node"
+ExecStart=/bin/bash -c "source /home/ropod/.ropod/env.sh && source /home/ropod/ropod-project-software/catkin_workspace/devel/setup.bash && export ROS_MASTER_URI=http://localhost:11311 && roslaunch route_planner route_planner.launch"
 KillSignal=SIGKILL
 User=ropod
 Restart=on-failure
