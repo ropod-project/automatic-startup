@@ -1,0 +1,12 @@
+[Unit]
+Description=ROPOD navigation mediator
+After=roscore.service ropod_napoleon_navigation.service ropod_maneuver_navigation.service ropod_world_model_mediator.service
+
+[Service]
+ExecStart=/bin/bash -c "source /home/ropod/.ropod/env.sh && source /home/ropod/ropod-project-software/catkin_workspace/devel/setup.bash && export ROS_MASTER_URI=http://localhost:11311 && roslaunch ropod_navigation_mediator ropod_navigation_mediator.launch"
+KillSignal=SIGKILL
+User=ropod
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
