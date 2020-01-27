@@ -5,6 +5,7 @@ Description=roscore service
 Type=simple
 ExecStart=/bin/bash -c "source /opt/ros/kinetic/setup.bash && /opt/ros/kinetic/bin/roscore"
 Restart=on-failure
+CPUAffinity=2-7
 
 [Install]
 WantedBy=multi-user.target

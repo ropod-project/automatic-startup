@@ -8,6 +8,7 @@ WorkingDirectory=/home/ropod/ropod-project-software/catkin_workspace/src/platfor
 KillSignal=SIGKILL
 User=ropod
 Restart=on-failure
+CPUAffinity=2-7
 
 [Install]
 WantedBy=multi-user.target

@@ -7,6 +7,7 @@ ExecStart=/bin/bash -c "source /home/ropod/.ropod/env.sh && export ROBOT_REAL=tr
 KillSignal=SIGKILL
 User=ropod
 Restart=on-failure
+CPUAffinity=2-7
 
 [Install]
 WantedBy=multi-user.target
